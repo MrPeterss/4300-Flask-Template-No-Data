@@ -26,6 +26,7 @@ def init_db():
     with app.app_context():
         # Create all tables
         db.create_all()
+        
         # Initialize database with data from init.json if empty
         if Episode.query.count() == 0:
             json_file_path = os.path.join(current_directory, 'init.json')
