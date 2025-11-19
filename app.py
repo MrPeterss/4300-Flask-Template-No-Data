@@ -26,7 +26,6 @@ def init_db():
     with app.app_context():
         # Create all tables
         db.create_all()
-        
         # Initialize database with data from init.json if empty
         if Episode.query.count() == 0:
             json_file_path = os.path.join(current_directory, 'init.json')
@@ -50,7 +49,7 @@ def init_db():
             db.session.commit()
             print("Database initialized with episodes and reviews data")
 
+init_db()
+
 if __name__ == '__main__':
-    # Initialize database before running the app
-    init_db()
     app.run(debug=True, host="0.0.0.0", port=5000)

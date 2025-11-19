@@ -14,7 +14,7 @@ COPY templates/ $CONTAINER_HOME/templates/
 # Set working directory
 WORKDIR $CONTAINER_HOME
 
-# Run the Flask application
-# Using python app.py to ensure database initialization runs
-CMD ["python", "app.py"]
+
+# Run the Flask application using gunicorn
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8000"]
 
