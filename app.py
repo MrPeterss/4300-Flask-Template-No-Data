@@ -29,7 +29,7 @@ def init_db():
         
         # Initialize database with data from init.json if empty
         if Episode.query.count() == 0:
-            json_file_path = os.path.join(current_directory, 'init.json')
+            json_file_path = os.path.join(current_directory, 'data/init.json')
             with open(json_file_path, 'r') as file:
                 data = json.load(file)
                 for episode_data in data['episodes']:
